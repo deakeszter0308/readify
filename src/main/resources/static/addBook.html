@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Book</title>
+</head>
+<body>
+<h1>Add a New Book</h1>
+<form id="addBookForm" method="post">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" required><br><br>
+
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" required><br><br>
+
+    <label for="price">Price:</label>
+    <input type="number" step="0.01" id="price" name="price" required><br><br>
+
+    <button type="submit">Add Book</button>
+</form>
+
+<script>
+    document.getElementById("addBookForm").addEventListener("submit", function(event) {
+     event.preventDefault();
+
+     const bookData = {
+         title: document.getElementById("title").value,
+         author: document.getElementById("author").value,
+         category: document.getElementById("category").value,
+         price: parseFloat(document.getElementById("price").value)
+     };
+
+     fetch('/books', {
+         method: 'POST',
+         headers: {
+             'Content-Type': 'application/json',
+             'Authorization': 'Basic ' + btoa('test1:test1')  // Basic auth 'username:password' --> base64
+         },
+         body: JSON.stringify(bookData)
+     })
+     .then(response => {
+         if (response.ok) {
+             alert('Book added successfully!');
+             document.getElementById("addBookForm").reset();
+         } else {
+             alert('Failed to add book.');
+         }
+     })
+     .catch(error => {
+         console.error('Error:', error);
+         alert('An error occurred while adding the book.');
+     });
+ });
+
+</script>
+</body>
+</html>

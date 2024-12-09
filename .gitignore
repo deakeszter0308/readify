@@ -1,0 +1,50 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+
+# Folders to ignore
+.idea
+.hg
+.svn
+.CVS
+node_modules/
+jscoverage_lib/
+src/main/webapp/WEB-INF/ftl/rsrc/
+src/main/webapp/rsrc/dist/
+src/main/resources/application-local.properties
+webpack-assets.json
+/data/testdb.mv.db
+/data/testdb.trace.db
+/data/
+

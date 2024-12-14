@@ -42,25 +42,59 @@ const AddBook = () => {
 
 
     return (
-        <div>
-            <h1>Add a New Book</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Title:</label>
-                <input type="text" name="title" value={book.title} onChange={handleChange} required /><br />
+            <form onSubmit={handleSubmit} className="p-4 bg-primary rounded shadow-md">
+                <h2 className="text-xl font-bold mb-4">Add a New Book</h2>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-1">Title</label>
+                    <input
+                        type="text"
+                        name="title"
+                        value={book.title}
+                        onChange={handleChange}
+                        className="w-full p-2 border rounded"
+                        required
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-1">Author</label>
+                    <input
+                        type="text"
+                        name="author"
+                        value={book.author}
+                        onChange={handleChange}
+                        className="w-full p-2 border rounded"
+                        required
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-1">Category</label>
+                    <input
+                        type="text"
+                        name="category"
+                        value={book.category}
+                        onChange={handleChange}
+                        className="w-full p-2 border rounded"
+                        required
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-1">Price</label>
+                    <input
+                        type="number"
+                        name="price"
+                        value={book.price}
+                        onChange={handleChange}
+                        className="w-full p-2 border rounded"
+                        step="5"
+                        required
+                    />
+                </div>
 
-                <label>Author:</label>
-                <input type="text" name="author" value={book.author} onChange={handleChange} required /><br />
-
-                <label>Category:</label>
-                <input type="text" name="category" value={book.category} onChange={handleChange} required /><br />
-
-                <label>Price:</label>
-                <input type="number" name="price" value={book.price} onChange={handleChange} required /><br />
-
-                <button type="submit">Add Book</button>
+                <button type="submit" className="bg-blue-900 text-white px-4 py-2 rounded">
+                    Add Book
+                </button>
             </form>
-        </div>
-    );
+        );
 };
 
 export default AddBook;

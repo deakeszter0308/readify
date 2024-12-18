@@ -8,6 +8,8 @@ module.exports = {
     extend: {colors: {
                      'primary': '#CBD2A4',
                      'secondary': '#9A7E6F',
+                     'btn_color': '#9A7E6F',
+                     'dark_brown': '#54473F',
                    },},
   },
   plugins: [],

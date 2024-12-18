@@ -25,33 +25,64 @@ class App extends Component {
         if (!contentType || !contentType.includes('application/json')) {
           throw new Error('Received non-JSON response');
         }
-        const body = await response.json(); // JSON adat
+        const body = await response.json();
         console.log('Fetched books:', body);
-        this.setState({ books: body });  // Állapot frissítése
+        this.setState({ books: body });
       } catch (error) {
-        console.error('Error fetching books:', error); // Hiba kezelése
+        console.error('Error fetching books:', error);
       }
     }
 
   render() {
-      const { books } = this.state; // Az állapotból a könyvek
+      const { books } = this.state; 
       return (
       <Router>
         <div className="App">
-          <header className="App-header">
-            <h1>Readify</h1>
-            {/* Navigációs gomb */}
-            <nav>
-              <Link to="/books">Books</Link> |
-              <Link to="/addBook">Add Book</Link>
+         {/* Navigation Bar */}
+                            <nav className="bg-btn_color text-white py-4">
+                              <div className="container mx-auto flex justify-between items-center">
+                                {/* Logo */}
+                                <a href="/" className="text-xl font-bold p-2">
+                                  Readify
+                                </a>
 
-            </nav>
-            <Routes>
-              <Route path="/books" element={<BookList />} />
-              <Route path="/addBook" element={<AddBook />} />
-            </Routes>
+                                {/* Navigation Links */}
+                                <ul className="flex space-x-6">
+                                  <li>
+                                    <Link to="/books" className="hover:text-gray-300 text-xl">
+                                      Books
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link to="/addBook" className="hover:text-gray-300 text-xl">
+                                      Add Book
+                                    </Link>
+                                  </li>
+                                </ul>
+                                <div className="flex space-x-4">
+                                  <Link
+                                    to="/login"
+                                    className="bg-dark_brown px-4 py-2 rounded hover:bg-gray-600"
+                                  >
+                                    Login
+                                  </Link>
+                                  <Link
+                                    to="/signup"
+                                    className="bg-dark_brown px-4 py-2 rounded hover:bg-gray-400"
+                                  >
+                                    Sign Up
+                                  </Link>
+                                </div>
+                              </div>
+                            </nav>
 
-          </header>
+                            {/* Main Content */}
+                            <header className="App-header">
+                              <Routes>
+                                <Route path="/books" element={<BookList />} />
+                                <Route path="/addBook" element={<AddBook />} />
+                              </Routes>
+                            </header>
         </div>
         </Router>
       );

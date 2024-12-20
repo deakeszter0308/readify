@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import AddBook from './pages/AddBook'; // Feltételezve, hogy van AddBook komponensed
-import BookList from './pages/BookList'; // A könyvek listája komponens
-
+import AddBook from './pages/AddBook';
+import BookList from './pages/BookList';
+import Signup from './pages/Signup'
 
 
 class App extends Component {
@@ -34,7 +34,7 @@ class App extends Component {
     }
 
   render() {
-      const { books } = this.state; 
+      const { books } = this.state;
       return (
       <Router>
         <div className="App">
@@ -81,6 +81,7 @@ class App extends Component {
                               <Routes>
                                 <Route path="/books" element={<BookList />} />
                                 <Route path="/addBook" element={<AddBook />} />
+                                <Route path="/signup" element={<Signup />} />
                               </Routes>
                             </header>
         </div>

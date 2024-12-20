@@ -43,7 +43,7 @@ public class SecurityConfig {
                 .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin())) // allow iframes
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/h2-console/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/books").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/books", "/api/auth/signup", "/api/auth/signin").permitAll()
                         .requestMatchers(HttpMethod.GET, "/books", "/addBook.html").permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults()); // HTTP Basic auth

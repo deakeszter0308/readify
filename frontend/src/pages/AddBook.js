@@ -15,7 +15,7 @@ const AddBook = () => {
         setBook({ ...book, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!token) {
               alert('Please log in to add a book.');

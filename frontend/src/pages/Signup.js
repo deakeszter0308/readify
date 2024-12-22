@@ -22,7 +22,7 @@ const Signup = () => {
 
             console.log('Creating user:', formData);
 
-            axios.post('http://localhost:8010/proxy/api/auth/signup', formData, {
+            axios.post('http://localhost:8080/api/auth/signup', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

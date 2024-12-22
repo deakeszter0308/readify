@@ -20,7 +20,7 @@ const Signin = () => {
         console.log('Sign In attempt:', formData);
 
         try {
-            const response = await axios.post('http://localhost:8010/proxy/api/auth/signin', formData, {
+            const response = await axios.post('http://localhost:8080/api/auth/signin', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 }

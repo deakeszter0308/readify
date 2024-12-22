@@ -30,7 +30,7 @@ const BookList = () => {
                 : [...likedBooks, bookId];
 
             if (!token) {
-              alert('Please log in to like a book.');
+              alert('You must be logged in to like a book!');
               return;
             }
             setLikedBooks(updatedLikedBooks);
@@ -52,9 +52,7 @@ const BookList = () => {
                 if (response.status === 200) {
                     console.log("Book liked successfully");
                 }
-                if (response.status === 403) {
-                       alert('You must be logged in to like a book');
-                }
+
             } catch (error) {
                 console.error('Error liking book:', error);
             }
@@ -62,6 +60,8 @@ const BookList = () => {
 
         const deleteBook = async (bookId) => {
                 try {
+                    if(!token){
+                        alert("You must be logged in to delete a book!")}
                     const response = await axios.delete(`http://localhost:8080/api/books/${bookId}`, {
                         headers: {
                             'Authorization': `Bearer ${token}`,
@@ -73,6 +73,8 @@ const BookList = () => {
                         setBooks(books.filter(book => book.id !== bookId));
                         console.log("Book deleted successfully");
                     }
+
+
                 } catch (error) {
                     console.error('Error deleting book:', error);
                     console.log(token)

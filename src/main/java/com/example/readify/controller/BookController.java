@@ -88,7 +88,7 @@ public class BookController {
     public ResponseEntity<LikedBooksResponse>getBooksLikedByUser(@AuthenticationPrincipal UserDetails userDetails) {
         String email = userDetails.getUsername();
         System.out.println("Fetching liked books for user: " + email);
-        
+
         List<Book> books = bookService.getBooksLikedByUser(email);
         System.out.println("Found " + books.size() + " liked books");
         if (books.isEmpty()) {

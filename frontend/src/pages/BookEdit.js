@@ -35,7 +35,7 @@ const BookEdit = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:8010/proxy/api/books/${id}`, book, {
+            const response = await axios.put(`http://localhost:8080/api/books/${id}`, book, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',

@@ -23,11 +23,11 @@ To run this project, you need the following:
 
    To run the Spring Boot backend, use the following command in the backend directory (where the `pom.xml` file is located):
 
-    - **Using Maven**:
+   - **Using Maven**:
 
-      ```bash
-      ./mvnw spring-boot:run
-      ```
+     ```bash
+     ./mvnw spring-boot:run
+     ```
 
    The backend will be available at `http://localhost:8080`.
 
@@ -52,43 +52,7 @@ To run this project, you need the following:
 
    The frontend will be available at `http://localhost:3000`.
 
-### 4. Adding Books
 
-Once the backend and frontend are running, follow these steps to add a new book:
-
-1. Open the frontend in your browser at `http://localhost:3000`.
-2. On the **Add Book** page, fill in the form with the book details.
-3. Click the "Add Book" button. The book details will be saved to the backend database, and the frontend will automatically update the list of books.
-
-### 5. CORS and Proxy Setup
-
-Since the frontend and backend run on different ports, you might encounter CORS issues. You can bypass these issues by using the **local-cors-proxy** package:
-
-1. **Install local-cors-proxy**:
-
-   If it's not already installed, use the following command:
-
-    ```bash
-    npm install -g local-cors-proxy
-    ```
-
-2. **Run the proxy**:
-
-   Start the proxy with the following command:
-
-    ```bash
-    lcp --proxyUrl http://localhost:8080 
-    ```
-
-   This allows the frontend application at `http://localhost:3000` to communicate with the backend without encountering CORS issues.
-
-### 6. Troubleshooting
-
-- If the frontend cannot connect to the backend, make sure the backend is running at `http://localhost:8080`.
-- If the backend is not accessible, check that the Spring Boot application started correctly.
-- If you encounter CORS issues, try running **local-cors-proxy** to forward requests through the local proxy.
-
----
 
 ### Project Overview
 

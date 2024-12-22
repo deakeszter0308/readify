@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const AddBook = () => {
+    const token = localStorage.getItem('jwtToken');
     const [book, setBook] = useState({
         title: '',
         author: '',
@@ -16,17 +17,17 @@ const AddBook = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        if (!token) {
+              alert('Please log in to add a book.');
+              return;
+            }
         console.log('Submitting book:', book);
 
         axios.post('http://localhost:8010/proxy/books', book, {
             headers: {
+                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json',
-            },
-            auth: {
-                    username: 'test1',
-                    password: 'test1',
-                },
+            }
         })
             .then(response => {
                 console.log('Response:', response.data);

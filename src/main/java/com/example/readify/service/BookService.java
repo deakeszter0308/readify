@@ -18,4 +18,9 @@ public interface BookService {
 
     //Delete
     void deleteBookById(Long bookId);
+
+    void likeBook(Long bookId);
+
+    List<Book> getBooksLikedByUser(String username);
+
 }

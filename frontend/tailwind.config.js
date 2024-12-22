@@ -10,6 +10,7 @@ module.exports = {
                      'secondary': '#9A7E6F',
                      'btn_color': '#9A7E6F',
                      'dark_brown': '#54473F',
+                     'light': '#C1BAA1',
                    },},
   },
   plugins: [],
